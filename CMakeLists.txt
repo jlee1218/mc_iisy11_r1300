@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.1)
 set(CXX_DISABLE_WERROR 1)
 set(CMAKE_CXX_STANDARD 11)
 
-set(PROJECT_NAME NewRobotModule)
-set(PROJECT_DESCRIPTION "NewRobotModule")
+set(PROJECT_NAME mc_iisy11_r1300)
+set(PROJECT_DESCRIPTION "Iisy11r1300RobotModule")
 set(PROJECT_URL "")
 
 project(
@@ -25,7 +25,7 @@ endif()
 find_package(mc_rtc REQUIRED)
 
 add_subdirectory(src)
-add_subdirectory(yaml)
+
 
 if(BUILD_TESTING)
   add_subdirectory(tests)

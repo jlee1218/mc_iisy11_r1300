@@ -1,4 +1,4 @@
-name: CI of NewRobotModule
+name: CI of MyRobotModule
 
 on:
   push:
