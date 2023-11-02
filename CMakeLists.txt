@@ -14,6 +14,8 @@ project(
 include(CTest)
 enable_testing()
 
+set(CMAKE_MODULE_PATH "/usr/local/share/")
+
 if(MSVC AND _VCPKG_INSTALLED_DIR)
   set(VCPKG_INSTALL_PREFIX "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_PREFIX}")
   # Only debug actually exists but we make sure it's first in that case

@@ -23,24 +23,24 @@ Iisy11r1300Module::Iisy11r1300Module() : mc_rbdyn::RobotModule(MC_IISY11_R1300_D
   // Makes all the basic initialization that can be done from an URDF file
   init(rbd::parsers::from_urdf_file(urdf_path, fixed));
 
-  // // Automatically load the convex hulls associated to each body
-  // std::string convexPath = path + "/convex/" + name + "/";
-  // bfs::path p(convexPath);
-  // if(bfs::exists(p) && bfs::is_directory(p))
-  // {
-  //   std::vector<bfs::path> files;
-  //   std::copy(bfs::directory_iterator(p), bfs::directory_iterator(), std::back_inserter(files));
-  //   for(const bfs::path & file : files)
-  //   {
-  //     size_t off = file.filename().string().rfind("-ch.txt");
-  //     if(off != std::string::npos)
-  //     {
-  //       std::string name = file.filename().string();
-  //       name.replace(off, 7, "");
-  //       _convexHull[name] = std::pair<std::string, std::string>(name, file.string());
-  //     }
-  //   }
-  // }
+  // Automatically load the convex hulls associated to each body
+  std::string convexPath = path + "/convex/" + name + "/";
+  bfs::path p(convexPath);
+  if(bfs::exists(p) && bfs::is_directory(p))
+  {
+    std::vector<bfs::path> files;
+    std::copy(bfs::directory_iterator(p), bfs::directory_iterator(), std::back_inserter(files));
+    for(const bfs::path & file : files)
+    {
+      size_t off = file.filename().string().rfind("-ch.txt");
+      if(off != std::string::npos)
+      {
+        std::string name = file.filename().string();
+        name.replace(off, 7, "");
+        _convexHull[name] = std::pair<std::string, std::string>(name, file.string());
+      }
+    }
+  }
 
   // Define some force sensors
   _forceSensors.push_back(mc_rbdyn::ForceSensor("EndEffectorForceSensor", "joint_a6", sva::PTransformd::Identity()));
