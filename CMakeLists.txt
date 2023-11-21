@@ -4,7 +4,7 @@ set(CXX_DISABLE_WERROR 1)
 set(CMAKE_CXX_STANDARD 11)
 
 set(PROJECT_NAME mc_iisy11_r1300)
-set(PROJECT_DESCRIPTION "Iisy11r1300RobotModule")
+set(PROJECT_DESCRIPTION "mc iisy11 r1300 robot module")
 set(PROJECT_URL "")
 
 project(
@@ -13,8 +13,6 @@ project(
   VERSION 1.0.0)
 include(CTest)
 enable_testing()
-
-set(CMAKE_MODULE_PATH "/usr/local/share/")
 
 if(MSVC AND _VCPKG_INSTALLED_DIR)
   set(VCPKG_INSTALL_PREFIX "${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_PREFIX}")
@@ -26,8 +24,11 @@ endif()
 
 find_package(mc_rtc REQUIRED)
 
-add_subdirectory(src)
+if(NOT DEFINED MC_ISSY11_R1300_DESCRIPTION_PATH)
+	find_description_package(mc_iisy11_r1300_description)
+endif()
 
+add_subdirectory(src)
 
 if(BUILD_TESTING)
   add_subdirectory(tests)

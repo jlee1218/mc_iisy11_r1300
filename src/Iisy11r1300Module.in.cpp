@@ -47,19 +47,33 @@ Iisy11r1300Module::Iisy11r1300Module() : mc_rbdyn::RobotModule(MC_IISY11_R1300_D
 
 
   // Define a minimal set of self-collisions
-  _minimalSelfCollisions = {
-      {"base_link_inertia", "link_2", 0.02, 0.001, 0.}, 
-      {"base_link_inertia", "link_4", 0.02, 0.001, 0.}, 
-      {"base_link_inertia", "link_5", 0.02, 0.001, 0.}, 
-      {"base_link_inertia", "link_6", 0.02, 0.001, 0.}, 
-      {"link_1", "link_4", 0.02, 0.001, 0.},
-      {"link_1", "link_5", 0.02, 0.001, 0.},
-      {"link_1", "link_6", 0.02, 0.001, 0.},
-      {"link_2", "link_4", 0.02, 0.001, 0.},
-      {"link_2", "link_5", 0.02, 0.001, 0.},
-      {"link_2", "link_6", 0.02, 0.001, 0.},
-      {"link_4", "link_6", 0.02, 0.001, 0.}};
-  _commonSelfCollisions = _minimalSelfCollisions;
+  // _minimalSelfCollisions = {
+  //     {"base_link_inertia", "link_2", 0.02, 0.001, 0.}, 
+  //     {"base_link_inertia", "link_4", 0.02, 0.001, 0.}, 
+  //     {"base_link_inertia", "link_5", 0.02, 0.001, 0.}, 
+  //     {"base_link_inertia", "link_6", 0.02, 0.001, 0.}, 
+  //     {"link_1", "link_4", 0.02, 0.001, 0.},
+  //     {"link_1", "link_5", 0.02, 0.001, 0.},
+  //     {"link_1", "link_6", 0.02, 0.001, 0.},
+  //     {"link_2", "link_4", 0.02, 0.001, 0.},
+  //     {"link_2", "link_5", 0.02, 0.001, 0.},
+  //     {"link_2", "link_6", 0.02, 0.001, 0.},
+  //     {"link_4", "link_6", 0.02, 0.001, 0.}};
+  // _commonSelfCollisions = _minimalSelfCollisions;
+
+  // _minimalSelfCollisions = {
+  //     mc_rbdyn::Collision("base_link", "link_2", 0.02, 0.001, 0.), 
+  //     mc_rbdyn::Collision("base_link", "link_4", 0.02, 0.001, 0.), 
+  //     mc_rbdyn::Collision("base_link", "link_5", 0.02, 0.001, 0.), 
+  //     mc_rbdyn::Collision("base_link", "link_6", 0.02, 0.001, 0.), 
+  //     mc_rbdyn::Collision("link_1", "link_4", 0.02, 0.001, 0.),
+  //     mc_rbdyn::Collision("link_1", "link_5", 0.02, 0.001, 0.),
+  //     mc_rbdyn::Collision("link_1", "link_6", 0.02, 0.001, 0.),
+  //     mc_rbdyn::Collision("link_2", "link_4", 0.02, 0.001, 0.),
+  //     mc_rbdyn::Collision("link_2", "link_5", 0.02, 0.001, 0.),
+  //     mc_rbdyn::Collision("link_2", "link_6", 0.02, 0.001, 0.),
+  //     mc_rbdyn::Collision("link_4", "link_6", 0.02, 0.001, 0.)};
+  // _commonSelfCollisions = _minimalSelfCollisions;
 
   // Define simple grippers
   // _grippers = {{"l_gripper", {"L_UTHUMB"}, true}, {"r_gripper", {"R_UTHUMB"}, false}};
